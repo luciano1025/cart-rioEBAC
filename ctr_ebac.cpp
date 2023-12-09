@@ -69,7 +69,7 @@ int consultar() //Função responsável por consultar os usuários no sistema
 	char cpf[40]; //armazena um conjunto de caracteres
 	char conteudo[200]; //armazena um conjunto de caracteres
 	
-	printf("Digite o CPF a ser consultado: "); //coletando infomação do usuário
+	printf("Digite o CPF a ser consultado:"); //coletando infomação do usuário
 	scanf("%s",cpf); //%s refere-se a string
 	
 	FILE *file; // cria o arquivo
@@ -77,11 +77,10 @@ int consultar() //Função responsável por consultar os usuários no sistema
 	
 	if (file == NULL) //Arquivo inexistente, ou nulo até o momento do acesso
 	{
-		printf("\nNão foi possível abrir o arquivo, não localizado.\n\n\n");
-		
+		printf("\nNão foi possível abrir o arquivo, não localizado.\n");
 	}
 	
-		printf("\n\nEssas são as informações\n\n");
+	printf("\n\nEssas são as infomações do usuário \n\n"); //coletando infomação do usuário
 	
 	while(fgets(conteudo, 200, file) != NULL) //Função de execultar o limite da repetição
 	{
@@ -97,7 +96,7 @@ int deletar() //Função responsável por deletar os usuários no sistema
 {
 	char cpf[40]; //armazena um conjunto de caracteres
 	
-	printf("Digite o CPF do usuário a ser deletado: "); //coletando infomação do usuário
+	printf("Digite o CPF do usuário a ser deletado:"); //coletando infomação do usuário
 	scanf("%s",cpf); //%s refere-se a string
 	
 	remove(cpf); //Apaga o registro do CPF
@@ -145,6 +144,7 @@ int main() //Ponto de partida para execução do programa
     		printf("\t1 - Registrar Nomes\n"); //coletando infomação do usuário
     		printf("\t2 - Consultar Nomes\n"); //acessando infomação do usuário
     		printf("\t3 - Deletar Nomes\n\n\n"); //deletando infomação do usuário    		
+    		printf("\t4 - Para sair\n\n\n"); //deletando infomação do usuário
     		printf("\tEsse Softare é de livre uso dos Alunos, Colaboradores e Professores nossos da EBAC!\n\n"); //descrisção a quem pode utiliza-lo
     		printf("\t\t\t\t\t Seja Bem Vindo!\n\n\n "); //Saudações ao usuário
     		printf("\tSelecione sua Opção: "); //Final do menu
@@ -168,6 +168,11 @@ int main() //Ponto de partida para execução do programa
             	deletar();
             	break; //Fim do precesso
             	
+            	case 4: //Comparação de sequência de valores
+            	printf("Obrigado por utilizar o sistema!\n");
+            	return 0;
+            	break; //Fim do precesso
+            
             	default:
             	printf("essa opção não está disponível, por favor retorne ao início do menu, e escolha umas das opções mostradas!\n");
     			system("pause"); //pausar a tela
@@ -180,5 +185,7 @@ int main() //Ponto de partida para execução do programa
 	
 	else
 		printf("Senha incorreta!");
+
 }
+
 
